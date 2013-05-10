@@ -42,4 +42,4 @@ group :test, :development do
   gem 'simplecov', :require => false
   gem 'rails-erd'
 end
-
+gem "letter_opener", :group => :development
