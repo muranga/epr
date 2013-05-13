@@ -6,5 +6,6 @@ class Project < ActiveRecord::Base
   validates :status, :inclusion => {:in => %w(new participants concept approved rejected cleared complete)}
   validates_uniqueness_of :title
   belongs_to :user
+  has_many :project_members
 
 end

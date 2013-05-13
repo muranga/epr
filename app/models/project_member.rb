@@ -1,3 +1,4 @@
 class ProjectMember < ActiveRecord::Base
-  attr_accessible :academic_programme_string, :email, :name
+  attr_accessible  :email, :name
+  belongs_to :project
 end

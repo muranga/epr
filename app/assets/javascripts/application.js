@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require groundwork
+//= require cocoon
 //= require_tree .
