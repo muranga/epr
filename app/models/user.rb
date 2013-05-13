@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -13,8 +14,13 @@ class User < ActiveRecord::Base
   validates :registration_number, :presence => true, :if => :is_student?
   validates_uniqueness_of :registration_number, :if => :is_student?
   validates :academic_programme, :presence => true, :if => :is_student?
+  has_many :projects
 
   def is_student?
     user_type == "Student"
+  end
+
+  def is_public?
+    user_type == "Public"
   end
 end

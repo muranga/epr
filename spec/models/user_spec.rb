@@ -11,7 +11,6 @@ describe User do
     before { subject.stub(:is_student?) { true } }
     it { should validate_presence_of(:registration_number) }
     it { should validate_presence_of(:academic_programme) }
-    it { should_not validate_uniqueness_of(:registration_number) }
   end
 
   context "if public" do

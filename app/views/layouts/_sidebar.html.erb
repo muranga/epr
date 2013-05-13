@@ -1,21 +1,25 @@
-<% if content_for?(:nav) || content_for?(:sidebar)%>
-	<aside class="one fifth padded border-right">
-		<% if content_for? :nav %>
-			<h3>
-				<i class="icon-reorder"></i>
-				Navigation
-			</h3>
-			<nav class="nav">
-				<ul>
-					<%= yield :nav%>
-				</ul>
-			</nav>
-		<%end%>
+<aside class="one fifth padded border-right">
+  <h3>
+    <i class="icon-reorder"></i>
+    Navigation
+  </h3>
+  <nav class="nav">
+    <ul>
+      <li>
+        <%= link_to "Home", root_path %>
+      </li>
+      <li>
+        <% if can? :create, Project %>
+            <%= link_to "New Project", new_project_path %>
+        <% end %>
+      </li>
+      <li>
+        <% if can? :manage, Project %>
+            <%= link_to "Projects", projects_path %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
 
-		<br/>
 
-		<% if content_for? :sidebar%>
-			<%= yield :sidebar%>
-		<%end%>
-	</aside>
-<%end%>
+</aside>

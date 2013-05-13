@@ -16,6 +16,7 @@ gem "pg_search", '~> 0.6.1'
 gem 'progress_bar'
 gem 'thin'
 gem 'groundworkcss-rails'
+gem 'wicked'
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -30,7 +31,7 @@ gem 'jquery-rails'
 group :test do
   gem 'launchy'
 end
-
+gem 'factory_girl_rails'
 group :test, :development do
   gem 'rspec-rails', '~> 2.0'
   gem 'factory_girl'
