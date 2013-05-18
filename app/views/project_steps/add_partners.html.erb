@@ -1,1 +1,13 @@
 <h1>Add Members</h1>
+<div class="one half padded">
+  <%= form_for @project, url: wizard_path(@next_step, :project_id => @project.id) do |f| %>
+      <%= f.simple_fields_for :project_members do |task| %>
+          <%= render '_project_member_fields', :f => task %>
+
+      <% end %>
+      <%= link_to_add_association 'Add Member', f, :project_members %>
+      <div class="actions">
+        <%= f.submit "Continue" %>
+      </div>
+  <% end %>
+</div>

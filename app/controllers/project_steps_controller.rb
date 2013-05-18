@@ -14,7 +14,7 @@ class ProjectStepsController < ApplicationController
   def update
     @project = Project.find(params[:project_id])
     @project.update_attributes(params[:project])
-    render_wizard @project
+    render_wizard @project, :project_id => @project.id
   end
 
 

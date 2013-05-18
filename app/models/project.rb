@@ -7,5 +7,6 @@ class Project < ActiveRecord::Base
   validates_uniqueness_of :title
   belongs_to :user
   has_many :project_members
+  accepts_nested_attributes_for :project_members, :reject_if => :all_blank, :allow_destroy => true
 
 end

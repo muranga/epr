@@ -16,7 +16,7 @@ gem "pg_search", '~> 0.6.1'
 gem 'progress_bar'
 gem 'thin'
 gem 'groundworkcss-rails'
-gem 'wicked'
+gem 'wicked', :git => 'git@github.com:muranga/wicked.git'
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
