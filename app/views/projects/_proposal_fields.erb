@@ -1,0 +1,13 @@
+<div id="proposal" class="nested-fields">
+  <%= f.input :title, :required => true %>
+  <%= f.input :abstract, :required => true %>
+  <% if f.object.document? %>
+      <%= link_to f.object.document.url, :class => "button small" do %>
+          <%= f.object.document.file.filename %>
+          <i class="icon-download-alt"></i>
+      <% end %>
+  <% end %>
+  <%= f.input :document, :as => :file, :required => true %>
+  <%= f.hidden_field :document_cache %>
+  <%= link_to_remove_association "remove Proposal", f %>
+</div>

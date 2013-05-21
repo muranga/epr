@@ -8,7 +8,11 @@ class ProjectsController < ApplicationController
 
   def show
     if @project.status == 'new'
-      redirect_to project_steps_path(:project_id => @project.id), notice: 'You need to add members to your project.'
+      redirect_to project_add_partner_path(:project_id => @project.id), notice: 'You need to add members to your project.'
+    elsif @project.status == 'participants'
+      redirect_to project_submit_proposal_path(:project_id => @project.id), notice: 'You should submit your proposal'
+    elsif @project.status == 'concept'
+      redirect_to project_review_path(:project_id => @project.id), notice: 'You proposal is being reviewed'
     end
   end
 
@@ -25,7 +29,7 @@ class ProjectsController < ApplicationController
     @project.status="new"
 
     if @project.save
-      redirect_to project_steps_path(:project_id => @project.id), notice: 'Project was successfully created.'
+      redirect_to project_add_partner_path(:project_id => @project.id), notice: 'Project was successfully created.'
     else
       render "new"
     end
@@ -35,7 +39,7 @@ class ProjectsController < ApplicationController
     if @project.update_attributes(params[:project])
       redirect_to @project, notice: 'Project was successfully updated.'
     else
-      brender action: "edit"
+      render action: "edit"
     end
   end
 
@@ -44,4 +48,42 @@ class ProjectsController < ApplicationController
 
     redirect_to projects_url
   end
+
+  def get_add_partner
+    get_project()
+    render :action => 'add_partners.html'
+  end
+
+  def post_add_partner
+    get_project()
+    if @project.update_attributes(params[:project])
+      redirect_to project_submit_proposal_path(:project_id => @project.id), notice: 'You should now submit your proposal.'
+    else
+      render :action => 'add_partners.html'
+    end
+  end
+
+
+  def get_submit_proposal
+    get_project()
+    render :submit_proposal
+  end
+
+  def post_submit_proposal
+    get_project()
+    if @project.update_attributes(params[:project])
+      redirect_to project_review_path(:project_id => @project.id), notice: 'You proposal is now ready for review.'
+    else
+      render :action => 'submit_proposal.html'
+    end
+  end
+
+  def review()
+    get_project()
+  end
+
+  def get_project
+    @project = Project.find(params[:project_id])
+  end
+
 end

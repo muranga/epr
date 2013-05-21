@@ -16,7 +16,6 @@ gem "pg_search", '~> 0.6.1'
 gem 'progress_bar'
 gem 'thin'
 gem 'groundworkcss-rails'
-gem 'wicked', :git => 'git@github.com:muranga/wicked.git'
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -44,3 +43,6 @@ group :test, :development do
   gem 'rails-erd'
 end
 gem "letter_opener", :group => :development
+group :development do
+  gem 'guard-rspec'
+end

@@ -1,0 +1,19 @@
+<h1>Submit Proposal</h1>
+<div class="one half padded">
+
+  <div id="proposals">
+    <%= simple_form_for @project, :url => project_submit_proposal_path(:project_id => @project.id) do |f| %>
+        <div>
+          <%= f.simple_fields_for :proposals do |proposal| %>
+              <%= render 'projects/proposal_fields', :f => proposal %>
+          <% end %>
+          <%= f.input :status, :as => :hidden, :input_html => {:value => "concept"} %>
+          <%= link_to_add_association 'Add Proposal', f, :proposals, :id => 'add_proposal' %>
+          <div class="actions">
+            <%= f.submit "Continue" %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+
+</div>

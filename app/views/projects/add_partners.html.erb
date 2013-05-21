@@ -1,0 +1,19 @@
+<h1>Add Members</h1>
+<div class="one half padded">
+
+  <div id="members">
+    <%= simple_form_for @project, :url => project_add_partner_path(:project_id => @project.id) do |f| %>
+        <div>
+          <%= f.simple_fields_for :project_members do |member| %>
+              <%= render 'projects/project_member_fields', :f => member %>
+          <% end %>
+          <%= f.input :status, :as => :hidden, :input_html => {:value => "participants"} %>
+          <%= f.input :number_of_participants, :as => :hidden %>
+          <%= link_to_add_association 'Add Member', f, :project_members, :id => 'add_member' %>
+          <div class="actions">
+            <%= f.submit "Continue" %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
