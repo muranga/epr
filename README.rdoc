@@ -1,2 +1,6 @@
 == ECE Projects Repository
 
+Web Application to help Students and Lecturers manage their Research Projects.
+
+<img src="https://semaphoreapp.com/api/v1/projects/7f16a586cfd429b6869fd8bc4b746c91284c6bb5/47285/badge.png">
+
