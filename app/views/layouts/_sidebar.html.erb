@@ -18,6 +18,18 @@
             <%= link_to "Projects", projects_path %>
         <% end %>
       </li>
+      <li>
+        <% if can? :manage, User %>
+            <%= link_to "Users", users_path %>
+        <% end %>
+      </li>
+
+      <li>
+        <% if can? :manage, Proposal %>
+            <%= link_to "Proposals", proposals_path %>
+        <% end %>
+      </li>
+
     </ul>
   </nav>
 

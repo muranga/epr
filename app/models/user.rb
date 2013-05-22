@@ -23,4 +23,12 @@ class User < ActiveRecord::Base
   def is_public?
     user_type == "Public"
   end
+
+  def is_projects_coordinator?
+    user_type == "PC"
+  end
+
+  def password_required?
+    (!password.blank? && !password_confirmation.blank?) || new_record?
+  end
 end
