@@ -2,16 +2,34 @@
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Title</th>
+    <th>Project</th>
+    <th>Reviewed</th>
+    <th>Assigned</th>
+    <th>Submitted By</th>
   </tr>
 
 <% @proposals.each do |proposal| %>
   <tr>
-    <td><%= link_to 'Show', proposal %></td>
-    <td><%= link_to 'Edit', edit_proposal_path(proposal) %></td>
-    <td><%= link_to 'Destroy', proposal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  <td><%= proposal.title %></td>
+	  <td><%= proposal.project.title %></td>
+	  <td>
+	  <%= check_box_tag 'proposal', 'reviewed', proposal.reviewed, :disabled => true %>
+	  </td>
+	  <td><%= check_box_tag 'proposal', 'assigned', proposal.assigned, :disabled => true %></td>
+	  <td>
+		  <% if proposal.user %>
+		  <%= proposal.user.full_name %>
+		  <%end%>
+	  </td>
+    <td>
+	  <% if not proposal.assigned %>
+	  	<%= link_to 'Assign To Supervisor', proposal %>
+	  <%end%>
+	</td>
+    
+    <td><%= link_to 'View', proposal %></td>
+   
   </tr>
 <% end %>
 </table>

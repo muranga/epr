@@ -2,5 +2,5 @@
 
 Web Application to help Students and Lecturers manage their Research Projects.
 
-<img src="https://semaphoreapp.com/api/v1/projects/7f16a586cfd429b6869fd8bc4b746c91284c6bb5/47285/badge.png">
+Codeship Status for {muranga/epr}[https://www.codeship.io/projects/3726] https://www.codeship.io/projects/d0f92720-a61b-0130-eac8-26eb5209726f/status?branch=master
 
