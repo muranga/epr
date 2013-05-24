@@ -1,0 +1,19 @@
+<h1>Submit Report</h1>
+<div class="one half padded">
+
+  <div id="report">
+    <%= simple_form_for @project, :url => project_report_path(:project_id => @project.id) do |f| %>
+        <div>
+          <%= f.simple_fields_for :reports do |report| %>
+              <%= render 'projects/report_fields', :f => report %>
+          <% end %>
+          <%= f.input :status, :as => :hidden, :input_html => {:value => "complete"} %>
+          <%= link_to_add_association 'Add Report', f, :reports, :id => 'add_report' %>
+          <div class="actions">
+            <%= f.submit "Continue" %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+
+</div>

@@ -1,4 +1,29 @@
-<p id="notice"><%= notice %></p>
+
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr><th><%=@project.title%></th></tr>
+	<tr><td>Title</td> <td><%=@project.title%></td></tr>
+	<tr><td>Number of Participants</td> <td><%=@project.number_of_participants%></td></tr>
+	<tr><td>Created By</td> <td><%=@project.user.full_name%></td></tr>
+	<tr><td>Members</td>
+		
+		 <td><% @project.project_members.each do |member| %>
+			 <%=member.name %>
+			 <%end%>
+		 </td></tr>
+	 	<tr><td>Proposal</td>
+		
+	 		 <td><% @project.proposals.each do |proposal| %>
+	 			 <%=link_to proposal.title, proposal %>
+	 			 <%end%>
+	 		 </td></tr>
+	 	 	<tr><td>Reports</td>
+		
+	 	 		 <td><% @project.reports.each do |report| %>
+	 	 			 <%=link_to report.title, report %>
+	 	 			 <%end%>
+	 	 		 </td></tr>
+</table>
+
 
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

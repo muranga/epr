@@ -1,34 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User:</b>
-  <%= @report.user_id %>
-</p>
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr><th><%=@report.title %></th></tr>
+	<tr><td>
+		Id
+	</td>
+	<td>
+		<%=@report.id %>
+	</td>
+</tr>
+	<tr><td>
+		Title
+	</td>
+	<td>
+		<%=@report.title %>
+	</td>
+</tr><tr><td>
+		Abstract
+	</td>
+	<td>
+		<%=@report.abstract %>
+	</td>
+</tr>
+	<tr><td>
+		File
+	</td>
+	<td>
+	    <% if @report.document? %>
+	        <%= link_to @report.document.url, :class => "button small" do %>
+	            <%= @report.document.file.filename %>
+	            <i class="icon-download-alt"></i>
+	        <% end %>
+	    <% end %>
+		
+	</td>
+</tr>
+</table>
 
-<p>
-  <b>Project:</b>
-  <%= @report.project_id %>
-</p>
+<%= link_to 'Back', reports_path %>
 
-<p>
-  <b>Title:</b>
-  <%= @report.title %>
-</p>
 
-<p>
-  <b>Abstract:</b>
-  <%= @report.abstract %>
-</p>
 
-<p>
-  <b>File:</b>
-  <%= @report.file %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @report.status %>
-</p>
 
 
 <%= link_to 'Edit', edit_report_path(@report) %> |

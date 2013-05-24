@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
     elsif @project.status == 'concept'
       redirect_to project_review_path(:project_id => @project.id), notice: 'You proposal is being reviewed'
     elsif @project.status == 'approved'
-      redirect_to project_review_path(:project_id => @project.id), notice: 'You should submit your report.'
+      redirect_to project_report_path(:project_id => @project.id), notice: 'You should submit your report.'
     end
   end
 
@@ -88,6 +88,11 @@ class ProjectsController < ApplicationController
   end
   def put_report()
     get_project()
+    if @project.update_attributes(params[:project])
+      redirect_to  @project, notice: 'Thank you for submitting your report.'
+    else
+      render :action => 'report'
+    end
   end
 
   def get_project
