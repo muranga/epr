@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130523044047) do
+ActiveRecord::Schema.define(:version => 20130524011638) do
 
   create_table "project_members", :force => true do |t|
     t.string   "name"
@@ -40,6 +40,26 @@ ActiveRecord::Schema.define(:version => 20130523044047) do
     t.string   "document"
     t.boolean  "reviewed"
     t.boolean  "assigned"
+  end
+
+  create_table "reports", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.string   "title"
+    t.text     "abstract"
+    t.string   "file"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "reviews", :force => true do |t|
+    t.integer  "proposal_id"
+    t.integer  "user_id"
+    t.text     "comment"
+    t.string   "status"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "roles", :force => true do |t|

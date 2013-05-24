@@ -27,6 +27,9 @@ class User < ActiveRecord::Base
   def is_projects_coordinator?
     user_type == "PC"
   end
+  def is_supervisor?
+    user_type == "Super"
+  end
 
   def password_required?
     (!password.blank? && !password_confirmation.blank?) || new_record?

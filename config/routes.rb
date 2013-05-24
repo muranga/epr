@@ -1,4 +1,10 @@
 Epr::Application.routes.draw do
+  resources :reviews
+
+
+  resources :reports
+
+
   resources :proposals do
     get "index"
 
@@ -24,7 +30,9 @@ Epr::Application.routes.draw do
 
 
   devise_for :users
-  resources :users
+  scope "/admin" do
+    resources :users
+  end
 
   get "home/index"
 

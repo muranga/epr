@@ -29,6 +29,16 @@
             <%= link_to "Proposals", proposals_path %>
         <% end %>
       </li>
+      <li>
+        <% if can? :manage, Report %>
+            <%= link_to "Reports", reports_path %>
+        <% end %>
+      </li>
+      <li>
+        <% if can? :manage, Review %>
+            <%= link_to "Reviews", reviews_path %>
+        <% end %>
+      </li>
 
     </ul>
   </nav>
