@@ -11,6 +11,7 @@ gem 'seedbank'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'simple_form'
+gem 'squeel'
 gem "cocoon"
 gem "pg_search", '~> 0.6.1'
 gem 'progress_bar'

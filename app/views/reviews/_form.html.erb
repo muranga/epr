@@ -2,10 +2,11 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :proposal_id %>
-    <%= f.input :user_id %>
+    
+    <%= f.collection_select(:proposal_id, Proposal.un_assigned, :id, :title, prompt: "Select a proposal")%>
+	<%= f.collection_select(:user_id, User.supervisors, :id, :email, prompt: "Select a Supervisor")%>
     <%= f.input :comment %>
-    <%= f.input :status %>
+	 <%= f.input :status, collection: ["Approved","Rejected"], :required => true,prompt: "Select status" %>
   </div>
 
   <div class="form-actions">

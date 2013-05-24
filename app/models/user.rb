@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :registration_number, :if => :is_student?
   validates :academic_programme, :presence => true, :if => :is_student?
   has_many :projects
-
+  scope :supervisors , where(:user_type => "Super")
   def is_student?
     user_type == "Student"
   end

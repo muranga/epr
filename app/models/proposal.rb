@@ -7,4 +7,5 @@ class Proposal < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
   mount_uploader :document, ProposalUploader
+  scope :un_assigned , where(:assigned => nil)
 end

@@ -2,6 +2,17 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+	  <%= f.input :user_id, :as => :hidden, :input_html => {:value => current_user.id} %>
+	    <%= f.input :title, :required => true %>
+	    <%= f.input :abstract, :required => true %>
+	    <% if f.object.document? %>
+	        <%= link_to f.object.document.url, :class => "button small" do %>
+	            <%= f.object.document.file.filename %>
+	            <i class="icon-download-alt"></i>
+	        <% end %>
+	    <% end %>
+	    <%= f.input :document, :as => :file, :required => true %>
+	    <%= f.hidden_field :document_cache %>
   </div>
 
   <div class="form-actions">

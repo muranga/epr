@@ -44,6 +44,13 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
+        if @review.status == "Approved"
+          @review.proposal.project.status ="approved"
+          @review.proposal.project.save()
+        else
+          @review.proposal.project.status ="rejected"
+          @review.proposal.project.save()
+        end
         format.html { redirect_to @review, notice: 'Review was successfully created.' }
         format.json { render json: @review, status: :created, location: @review }
       else

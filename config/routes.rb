@@ -1,5 +1,5 @@
 Epr::Application.routes.draw do
-  resources :reviews
+  resources :reviews 
 
 
   resources :reports
@@ -25,6 +25,8 @@ Epr::Application.routes.draw do
     put "submit_proposal" => "projects#post_submit_proposal"
 
     get "review" => "projects#review"
+    get "report" => "projects#report"
+    put "report" => "projects#put_report"
   end
 
 

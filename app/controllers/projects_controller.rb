@@ -13,6 +13,8 @@ class ProjectsController < ApplicationController
       redirect_to project_submit_proposal_path(:project_id => @project.id), notice: 'You should submit your proposal'
     elsif @project.status == 'concept'
       redirect_to project_review_path(:project_id => @project.id), notice: 'You proposal is being reviewed'
+    elsif @project.status == 'approved'
+      redirect_to project_review_path(:project_id => @project.id), notice: 'You should submit your report.'
     end
   end
 
@@ -79,6 +81,12 @@ class ProjectsController < ApplicationController
   end
 
   def review()
+    get_project()
+  end
+  def report()
+    get_project()
+  end
+  def put_report()
     get_project()
   end
 

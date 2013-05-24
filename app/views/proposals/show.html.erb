@@ -1,5 +1,40 @@
 <p id="notice"><%= notice %></p>
 
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr><th><%=@proposal.title %></th></tr>
+	<tr><td>
+		Id
+	</td>
+	<td>
+		<%=@proposal.id %>
+	</td>
+</tr>
+	<tr><td>
+		Title
+	</td>
+	<td>
+		<%=@proposal.title %>
+	</td>
+</tr><tr><td>
+		Abstract
+	</td>
+	<td>
+		<%=@proposal.abstract %>
+	</td>
+</tr>
+	<tr><td>
+		File
+	</td>
+	<td>
+	    <% if @proposal.document? %>
+	        <%= link_to @proposal.document.url, :class => "button small" do %>
+	            <%= @proposal.document.file.filename %>
+	            <i class="icon-download-alt"></i>
+	        <% end %>
+	    <% end %>
+		
+	</td>
+</tr>
+</table>
 
-<%= link_to 'Edit', edit_proposal_path(@proposal) %> |
 <%= link_to 'Back', proposals_path %>
